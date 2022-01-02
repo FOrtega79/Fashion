@@ -1,0 +1,19 @@
+.footerWrapper{
+    position:relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: black;
+    background-color: antiquewhite;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.footerList{
+    list-style: none;
+    padding-bottom: 5px;
+    
+}
