@@ -12,4 +12,8 @@ function GetOneItem(itemId){
     return itemsService.get(`/theItem/${itemId}`)
 }
 
-export { GetAllItems, GetOneItem }
+function createNewItem(item){
+    return itemsService.post(`/addNewItem`, item)
+}
+
+export { GetAllItems, GetOneItem, createNewItem}
