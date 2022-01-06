@@ -13,9 +13,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import {Link} from "react-router-dom"
 
 const pages = ['Essentials', 'EShop', 'Outlet', 'About Us'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = [<Link to={"/"}>Add New Item</Link>, 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -115,7 +116,7 @@ const ResponsiveAppBar = () => {
             </IconButton>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/4.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
