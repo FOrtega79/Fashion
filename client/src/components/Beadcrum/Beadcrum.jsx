@@ -1,6 +1,7 @@
 import { Breadcrumbs, Typography } from "@mui/material"
 import HomeIcon from "@mui/icons-material/Home"
 import { Link } from "react-router-dom"
+import "./Beadcrum.css"
 
 
 
@@ -12,7 +13,7 @@ function handleClick(e) {
 function Beadcrum() {
 
     return(
-        <div role="presentation" onClick={handleClick}>
+        <div className="beadcrumb" role="presentation" onClick={handleClick}>
         <Breadcrumbs aria-label="breadcrumb">
           <Link to={"/"} color="success">
           <HomeIcon sx={{ mr: 0.5 }} fontSize="small" color="default"/>

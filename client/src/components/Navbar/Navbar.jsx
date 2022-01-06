@@ -15,6 +15,7 @@ import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {Link} from "react-router-dom"
 
+
 const pages = ['Essentials', 'EShop', 'Outlet', 'About Us'];
 const settings = [<Link to={"/"}>Add New Item</Link>, 'Account', 'Dashboard', 'Logout'];
 
@@ -38,7 +39,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static" style={{background:'#ffffff'}}>
+    <AppBar  position="fixed" style={{background:'#ffffff'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
