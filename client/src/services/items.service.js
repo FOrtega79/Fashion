@@ -9,7 +9,7 @@ function GetAllItems() {
 }
 
 function GetOneItem(itemId){
-    return itemsService.get(`/theItem/${itemId}`)
+    return itemsService.get(`/details/${itemId}`)
 }
 
 function createNewItem(item){

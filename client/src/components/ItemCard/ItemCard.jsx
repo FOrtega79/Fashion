@@ -18,11 +18,11 @@ function ItemCard({name, description, price, color, size, discount, image, categ
           alt={name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5" component="div" >
           {name}
           </Typography>
         
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" >
             {price}€
           </Typography>
         </CardContent>

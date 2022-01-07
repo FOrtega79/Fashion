@@ -15,7 +15,7 @@ router.get("/allItems", (req, res, next) => {
 })
 
 
-router.get("/oneItem/:item_id", (req, res, next)=> {
+router.get("/details/:item_id", (req, res, next)=> {
     const { item_id } = req.params
 
     Item
