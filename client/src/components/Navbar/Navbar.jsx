@@ -17,7 +17,7 @@ import {Link} from "react-router-dom"
 
 
 const pages = ['Essentials', 'EShop', 'Outlet', 'About Us'];
-const settings = [<Link to={"/"}>Add New Item</Link>, 'Account', 'Dashboard', 'Logout'];
+const settings = [<Link to={"/admin/dashboard"}>Add New Item</Link>, 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

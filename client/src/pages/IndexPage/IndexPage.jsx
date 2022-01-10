@@ -7,14 +7,16 @@ function IndexPage(){
 
 return(
 <div className='indexPage'>
-    <>
+    
     <Link to="/list">
+    <div className='indexText'>
+    <Button  variant="text" color='secondary' >Discover our New Collection!</Button>
+    </div>
     <img src="https://cdn.shopify.com/s/files/1/0569/9138/3701/products/street-bag-stromboli-pink-851652_800x1200.jpg" alt="img_index" width={500} />
-    <Button variant="text" color='primary' >Discover our New Collection!</Button>
+    
     </Link>
 
-    <NewItemForm />
-    </>
+    
 
 </div>
     
