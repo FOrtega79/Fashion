@@ -10,4 +10,7 @@ router.get("/", (req, res, next) => {
 const allItemsRoute = require('./items.routes')
 router.use('/items', allItemsRoute)
 
+const uploadImage = require('./uploadImages.routes')
+router.use('/upload', uploadImage)
+
 module.exports = router;
