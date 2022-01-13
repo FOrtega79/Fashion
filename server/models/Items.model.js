@@ -29,7 +29,7 @@ const itemSchema = new Schema(
     }, 
     image: {
         type: String, 
-        required: [true, 'The item needs an image']
+        required: [false, 'The item needs an image']
     }, 
 
     category: {
