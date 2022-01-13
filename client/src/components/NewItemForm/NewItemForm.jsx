@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { createNewItem } from '../../services/items.service';
+import { styled } from '@mui/material/styles'
+import { uploadImg } from '../../services/uploadImage.service';
 
 
 function NewItemForm (props) {
@@ -31,6 +33,19 @@ function NewItemForm (props) {
         .then(response => console.log(response.data))
         .catch(err => console.log(err))
     }
+
+    const handleFileUpload = e => {
+      const uploadData = new FormData()
+      uploadData.append('imageData', e.target.files[0])
+
+      uploadImg(uploadData)
+        .then(res => console.log('Backend response ----> ', res))
+        .catch(err => console.log(err))
+    }
+
+    const Input = styled('input')({
+      display: 'none',
+    });
 
     return (
       <Box onSubmit={handleFormSubmit}
@@ -100,16 +115,24 @@ function NewItemForm (props) {
         onChange={handleInputChange}    
         />
         
-        <TextField 
+        {/* <TextField 
+        required
         id="standard-basic" 
-        label="Image" 
+        label="Upload Image" 
         variant="standard" 
         value={image}
         name='image'
-        onChange={handleInputChange}    
-        />
+        /> */}
+
+      <label htmlFor="contained-button-file">
+        <Input accept="image/*" id="contained-button-file"  type="file" onChange={ handleFileUpload }/>
+        <Button variant="outlined" component="span" >
+          Upload Image
+        </Button>
+      </label>
         
         <TextField 
+        required
         id="standard-basic" 
         label="Category" 
         variant="standard" 
@@ -118,7 +141,7 @@ function NewItemForm (props) {
         onChange={handleInputChange}    
         />
 
-        <Button variant='outlined' type='submit'>Create Item</Button>
+        <Button variant='contained' type='submit'>Create Item</Button>
 
       </Box>
     );

@@ -2,7 +2,7 @@ const router = require('express').Router()
 
 const uploader = require('./../config/cloudinary.config')
 
-router.post('/image', uploader.single ('imageData'), (req, res) => {
+router.post('/image', uploader.single('imageData'), (req, res) => {
 
     console.log('objeto de multer --->', req.file)
 
@@ -11,7 +11,7 @@ router.post('/image', uploader.single ('imageData'), (req, res) => {
         return
     }
 
-    req.json({cloudinary_url: req.file.path})
+    res.json({cloudinary_url: req.file.path})
 
 })
 
