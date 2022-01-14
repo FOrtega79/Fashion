@@ -18,7 +18,6 @@ function NewItemForm (props) {
         discount:false, 
         image:'',
         category:''
-
     })
 
     const { name, description, price, color, size, discount, image, category } = itemForm
@@ -31,7 +30,7 @@ function NewItemForm (props) {
     }
 
     const handleFormSubmit = e =>{
-        
+        e.preventDefault()
         createNewItem(itemForm)
         .then(response => console.log(response.data))
         .catch(err => console.log(err))
@@ -64,6 +63,7 @@ function NewItemForm (props) {
         noValidate
         autoComplete="on"
       >
+
         <TextField 
         required 
         id="standard-basic" 
@@ -124,26 +124,31 @@ function NewItemForm (props) {
         />
 
 
-        <label htmlFor="contained-button-file">
-        <TextField 
+        
+        {/* <TextField 
         required
         id="standard-basic" 
         label="Upload Image" 
         variant="standard" 
         value={image}
         name='image'
+        type="file"
         onChange={ handleFileUpload }
-        accept="image/*"  type="file"
-      />
-        </label>
+      /> */}
+        
 
-      {/* <label htmlFor="contained-button-file">
-        <Input accept="image/*" id="contained-button-file"  type="file" onChange={ handleFileUpload }/>
+      <label htmlFor="contained-button-file">
+        <Input accept="image/*"
+        id="contained-button-file"  
+        type="file"  
+        onChange={ handleFileUpload } />
+        
         <Button variant="outlined" component="span" >
           Upload Image
         </Button>
-      </label> */}
+      </label>
         
+
         <TextField 
         required
         id="standard-basic" 
