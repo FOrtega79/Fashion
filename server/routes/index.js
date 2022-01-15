@@ -13,4 +13,7 @@ router.use('/items', allItemsRoute)
 const uploadImage = require('./uploadImages.routes')
 router.use('/upload', uploadImage)
 
+const authRoutes = require('./auth.routes')
+router.use('/auth', authRoutes)
+
 module.exports = router;
