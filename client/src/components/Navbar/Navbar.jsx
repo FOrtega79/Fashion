@@ -20,7 +20,9 @@ import { useContext } from 'react'
 
 
 const pages = ['Essentials', 'EShop', 'Outlet', 'About Us'];
-const settings = [<Link to={"/admin/dashboard"}>Add New Item</Link>, 'Account', 'Dashboard', 'Logout'];
+// const settings = [<Link to={"/admin/dashboard"}>Add New Item</Link>, 'Account', 'Dashboard', 'Logout'];
+const userLoggedIn = ['Profile', 'Log Out']
+const userNotLoggedIn = ['Log In', 'Sign up']
 
 function ResponsiveAppBar() {
 
@@ -126,28 +128,44 @@ function ResponsiveAppBar() {
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/4.jpg" />
               </IconButton>
             </Tooltip>
+
+
+          
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: 'top',
-                horizontal: 'right',
+                horizontal: 'left',
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'right',
+                horizontal: 'left',
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+      {isLoggedIn ? 
+      <>
+              {userLoggedIn.map((userLoggedIn) => (
+                <MenuItem key={userLoggedIn} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{userLoggedIn}</Typography>
                 </MenuItem>
               ))}
+              </>
+                :
+                <>
+                {userNotLoggedIn.map((userNotLoggedIn) => (
+                <MenuItem key={userNotLoggedIn} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{userNotLoggedIn}</Typography>
+                </MenuItem>
+              ))}
+              </>
+      }
             </Menu>
+
           </Box>
         </Toolbar>
       </Container>
