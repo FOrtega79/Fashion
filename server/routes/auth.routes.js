@@ -5,6 +5,8 @@ const User      = require('./../models/User.model')
 const router = express.Router()
 const saltRounds = 10
 
+const { isAuthenticated } = require('./../middleware/middelware.JWT')
+
 
 
 //Sign up Route
@@ -101,7 +103,7 @@ router.post('/login', (req, res, next) => {
           const authToken = jwt.sign( 
             payload,
             process.env.TOKEN_SECRET,
-            { algorithm: 'HS256', expiresIn: "720h" }
+            { algorithm: 'HS256', expiresIn: "h" }
           );
    
           // Send the token as the response
@@ -113,6 +115,17 @@ router.post('/login', (req, res, next) => {
    
       })
       .catch(err => res.status(500).json({ message: "Internal Server Error" }));
+  });
+
+
+  // Verify Route
+
+  // GET  /auth/verify  -  Used to verify JWT stored on the client
+router.get('/verify', isAuthenticated, (req, res, next) => {       
+ 
+    console.log(`req.payload`, req.payload);
+   
+    res.status(200).json(req.payload);
   });
 
 module.exports = router
