@@ -29,10 +29,10 @@ const {open, setOpen, alertInfo} = useContext(AlertContext)
 
   return (
     <Stack spacing={2} sx={{ width: '50%' }}>
-      <Button variant="outlined" 
+      {/* <Button variant="outlined" 
       onClick={handleClick}>
         Open success snackbar
-      </Button>
+      </Button> */}
       <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
           {alertInfo.description}
