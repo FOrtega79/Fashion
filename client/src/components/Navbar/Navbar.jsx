@@ -22,7 +22,7 @@ import { useContext } from 'react'
 const pages = ['Essentials', 'EShop', 'Outlet', 'About Us'];
 // const settings = [<Link to={"/admin/dashboard"}>Add New Item</Link>, 'Account', 'Dashboard', 'Logout'];
 const userLoggedIn = ['Profile', 'Log Out']
-const userNotLoggedIn = ['Log In', 'Sign up']
+const userNotLoggedIn = ['Log In', <Link to={"/signup"}>Sign up</Link>]
 
 function ResponsiveAppBar() {
 

@@ -50,8 +50,6 @@ function NewUserSignupForm({fireFinalActions}) {
           noValidate
           autoComplete="on"
         >
-        <h1>Sign up</h1>
-  
           <TextField 
           required 
           id="standard-basic" 
@@ -73,7 +71,7 @@ function NewUserSignupForm({fireFinalActions}) {
            />
   
           <TextField 
-          id="standard-basic" 
+          id="filled-adornment-password"
           label="Password" 
           variant="standard" 
           value={password}
@@ -89,8 +87,7 @@ function NewUserSignupForm({fireFinalActions}) {
           </Button>
         </Box>
         
-<p>Already have an account?</p>
-<p>Please Log in</p>
+
 </>
       );
 

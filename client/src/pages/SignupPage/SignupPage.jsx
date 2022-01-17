@@ -5,9 +5,10 @@ function NewUserSignUpPage(){
     return(
         <div className="signupform">
             <h1>Sign up</h1>
-<NewUserSignupForm 
-/>
+<NewUserSignupForm />
 
+<p>Already have an account?</p>
+<p>Please Log in</p>
 
 
 </div>
