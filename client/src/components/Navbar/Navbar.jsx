@@ -22,7 +22,7 @@ import { useContext } from 'react'
 const pages = ['Essentials', 'EShop', 'Outlet', 'About Us'];
 // const settings = [<Link to={"/admin/dashboard"}>Add New Item</Link>, 'Account', 'Dashboard', 'Logout'];
 const userLoggedIn = ['Profile', 'Log Out']
-const userNotLoggedIn = ['Log In', <Link to={"/signup"}>Sign up</Link>]
+const userNotLoggedIn = [<Link to={"/login"}>Login</Link>, <Link to={"/signup"}>Sign up</Link>]
 
 function ResponsiveAppBar() {
 
@@ -57,7 +57,7 @@ function ResponsiveAppBar() {
             color="black"
             sx={{ mr: 8, display: { xs: 'none', md: 'flex' } }}
           >
-            MOBDL Designs
+            <Link to={"/"}> MOBDL Designs</Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -103,7 +103,7 @@ function ResponsiveAppBar() {
             color="black"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            MOBDL Designs
+            <Link to={"/"}> MOBDL Designs</Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -125,7 +125,7 @@ function ResponsiveAppBar() {
             </IconButton>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/4.jpg" />
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
               </IconButton>
             </Tooltip>
 
@@ -148,21 +148,21 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
       {isLoggedIn ? 
-      <>
+        <div>
               {userLoggedIn.map((userLoggedIn) => (
-                <MenuItem key={userLoggedIn} onClick={handleCloseNavMenu}>
+                <MenuItem key={userLoggedIn.id} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{userLoggedIn}</Typography>
                 </MenuItem>
               ))}
-              </>
+              </div>
                 :
-                <>
+                <div>
                 {userNotLoggedIn.map((userNotLoggedIn) => (
-                <MenuItem key={userNotLoggedIn} onClick={handleCloseNavMenu}>
+                <MenuItem key={userNotLoggedIn.id} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{userNotLoggedIn}</Typography>
                 </MenuItem>
               ))}
-              </>
+              </div>
       }
             </Menu>
 

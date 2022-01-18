@@ -20,6 +20,7 @@ function AppRoutes () {
             <Route path="/admin/dashboard" element={<AdminDashboardPage/>} />
             <Route path="/signup" element={<NewUserSignUpPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path= "/user/profile" element={<h1>profile page</h1>} />
             <Route path="*" element={<h1>404... item not found</h1>} />
             
         </Routes>

@@ -4,6 +4,8 @@ import { login } from "./../../services/auth.service"
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import AlertMessage from "../AlertMessage/AlertMessage";
+import { AlertContext } from '../../context/AlertMessage.context'
 
 function LoginForm ({ fireFinalActions }) {
 
@@ -14,7 +16,7 @@ function LoginForm ({ fireFinalActions }) {
 
     const {email, password} = loginForm
     const {logInUser} = useContext(AuthContext)
-
+    const {setOpen} = useContext(AlertContext)
 
     const handleInputChange = e => {
         const { name, value } = e.target
@@ -28,15 +30,19 @@ function LoginForm ({ fireFinalActions }) {
 
         login(credentials)
         .then(res => {
-            console.log("JWT toke is... ", res.data)
+            console.log("JWT token is... ", res.data)
             logInUser(res.data.authToken)
             fireFinalActions()
         })
         .catch(err => console.log(err))
     }
 
+    const handleClick = () => {
+      setOpen(true);
+    };
+
         return(
-            <>
+            <div>
           
             <Box onSubmit={handleFormSubmit}
               component="form"
@@ -69,14 +75,16 @@ function LoginForm ({ fireFinalActions }) {
       
               <Button 
               variant='contained' 
-              type='submit' 
+              type='submit'
+              onClick={handleClick}
             //   disabled={loadingImage}>{loadingImage ? <Spinner /> : 'Sign up'}
-              >Login
+              ><AlertMessage/>Login
               </Button>
+      
             </Box>
             
     
-    </>
+    </div>
         )
 
 } 
