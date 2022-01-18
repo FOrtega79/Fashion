@@ -12,6 +12,8 @@ import Button       from '@mui/material/Button'
 import Tooltip      from '@mui/material/Tooltip'
 import MenuItem     from '@mui/material/MenuItem'
 import Badge        from '@mui/material/Badge'
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import {Link}       from "react-router-dom"
 import { AuthContext } from '../../context/auth.contex'
@@ -19,14 +21,11 @@ import { useContext } from 'react'
 
 
 
-const pages = ['Essentials', 'EShop', 'Outlet', 'About Us'];
-// const settings = [<Link to={"/admin/dashboard"}>Add New Item</Link>, 'Account', 'Dashboard', 'Logout'];
-const userLoggedIn = ['Profile', 'Log Out']
-const userNotLoggedIn = [<Link to={"/login"}>Login</Link>, <Link to={"/signup"}>Sign up</Link>]
+
 
 function ResponsiveAppBar() {
 
-  const {isLoggedIn, user} = useContext(AuthContext)
+  const {isLoggedIn, user, logOutUser} = useContext(AuthContext)
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -45,6 +44,13 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const pages = ['Essentials', 'EShop', 'Outlet', 'About Us'];
+  // const settings = [<Link to={"/admin/dashboard"}>Add New Item</Link>, 'Account', 'Dashboard', 'Logout'];
+  const userLoggedIn = ['Profile', <Link to={"/"} onClick={logOutUser}>Log Out</Link>]
+  const userNotLoggedIn = [<Link to={"/login"}>Login</Link>, <Link to={"/signup"}>Sign up</Link>]
+
+
 
   return (
     <AppBar  position="fixed" style={{background:'#ffffff'}}>
@@ -119,13 +125,21 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 0 }}>
           <IconButton size="large" aria-label="show 4 new mails" color="default">
-              <Badge badgeContent={1} color="secondary" variant="dot">
+              <Badge badgeContent={0} color="secondary" variant="dot">
                 <ShoppingCartOutlinedIcon />
               </Badge>
             </IconButton>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          {isLoggedIn ? 
+                <Avatar>
+                  <ManageAccountsOutlinedIcon />
+                </Avatar>
+                :
+                <Avatar>
+                  <PersonOutlineOutlinedIcon/>
+                </Avatar>
+              }
               </IconButton>
             </Tooltip>
 

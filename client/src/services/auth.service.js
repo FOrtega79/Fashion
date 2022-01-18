@@ -13,7 +13,7 @@ function login(credentials) {
 }
 
 function verify(token) {
-    return authService.get('/signup', { headers: { Authorization: `Bearer ${token}`} })
+    return authService.get('/verify', { headers: { Authorization: `Bearer ${token}`} })
 }
 
 export {signup, login, verify}

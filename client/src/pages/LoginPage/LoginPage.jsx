@@ -9,14 +9,15 @@ function LoginPage() {
     const {setOpen, setAlertInfo} = useContext(AlertContext)
 
     const fireFinalActions = () =>{
-        setOpen(true)
-        setAlertInfo({title:'', description:'Successfully logged in'})
+        // setOpen(true)
+        // setAlertInfo({title:'', description:'Successfully logged in'})
         Navigate('/user/profile')
     }
 
     return(
         <div className="loginPage">
         <h1>Login</h1>
+        {/* <LoginForm /> */}
         <LoginForm fireFinalActions={fireFinalActions}/>
         
         <p>Already have an account?</p>

@@ -1,5 +1,6 @@
 const express   = require('express')
 const bcrypt    = require('bcrypt')
+const jwt       = require('jsonwebtoken')
 const User      = require('./../models/User.model')
 
 const router = express.Router()
@@ -48,7 +49,7 @@ router.post('/signup', (req, res) => {
  
       // Create the new user in the database
       // We return a pending promise, which allows us to chain another `then` 
-      return User.create({ email, password: hashedPassword, username })
+      return User.create({ username, email, password: hashedPassword })
     })
     .then((createdUser) => {
       // Deconstruct the newly created user object to omit the password

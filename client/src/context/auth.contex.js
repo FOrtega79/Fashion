@@ -9,6 +9,8 @@ function AuthProviderWrapper(props) {
     const [isLoading, setIsLoading] = useState(true)
     const [user, setUser] = useState(null)
 
+    useEffect(() => verifyStoredToken(), [])
+
     const verifyStoredToken = () => {
         
         const storedToken = localStorage.getItem('authToken');
@@ -38,9 +40,15 @@ function AuthProviderWrapper(props) {
         verifyStoredToken()
     }
 
+    const logOutUser = () => {
+      localStorage.removeItem('authToken')
+      setIsLoggedIn(false)
+      setUser(null)
+    }
+
 
     return(
-        <AuthContext.Provider value={{ isLoggedIn, isLoading, user, logInUser}}>
+        <AuthContext.Provider value={{ isLoggedIn, isLoading, user, logInUser, logOutUser}}>
             {props.children}
         </AuthContext.Provider>
     )
