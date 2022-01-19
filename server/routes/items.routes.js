@@ -27,10 +27,10 @@ router.get("/details/:item_id", (req, res, next)=> {
 
 router.post("/addNewItem", (req, res, next)=> {
    
-    const { name, description, price, color, size, discount, image, category } = req.body
+    const { name, description, price, color, size, discount, imageUrl, category } = req.body
 
     Item
-    .create({ name, description, price, color, size, discount, image, category })
+    .create({ name, description, price, color, size, discount, image:imageUrl, category })
     .then(response => res.json(response))
     .catch(err => next(new Error(err)))
 

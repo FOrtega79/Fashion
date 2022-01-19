@@ -95,10 +95,13 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+             
+              {pages.map((page, i) => (
+                <div key={i}>
+                <MenuItem  onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
+                </div>
               ))}
             </Menu>
           </Box>
@@ -112,14 +115,17 @@ function ResponsiveAppBar() {
             <Link to={"/"}> MOBDL Designs</Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+           
+            {pages.map((page, i) => (
+           <div key={i} >
               <Button
-                key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'black', display: 'block' }}
               >
                 {page}
+
               </Button>
+              </div>
             ))}
           </Box>
 
@@ -163,18 +169,22 @@ function ResponsiveAppBar() {
             >
       {isLoggedIn ? 
         <div>
-              {userLoggedIn.map((userLoggedIn) => (
-                <MenuItem key={userLoggedIn.id} onClick={handleCloseNavMenu}>
+              {userLoggedIn.map((userLoggedIn, i) => (
+                <div key={i}>
+                <MenuItem key={userLoggedIn} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{userLoggedIn}</Typography>
                 </MenuItem>
+                </div>
               ))}
               </div>
                 :
                 <div>
-                {userNotLoggedIn.map((userNotLoggedIn) => (
-                <MenuItem key={userNotLoggedIn.id} onClick={handleCloseNavMenu}>
+                {userNotLoggedIn.map((userNotLoggedIn, i) => (
+                  <div key={i}>
+                <MenuItem key={userNotLoggedIn} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{userNotLoggedIn}</Typography>
                 </MenuItem>
+                </div>
               ))}
               </div>
       }

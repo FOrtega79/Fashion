@@ -12,8 +12,12 @@ function login(credentials) {
     return authService.post('/login', credentials)
 }
 
+function adminlogin(credentials) {
+    return authService.post('/admin', credentials)
+}
+
 function verify(token) {
     return authService.get('/verify', { headers: { Authorization: `Bearer ${token}`} })
 }
 
-export {signup, login, verify}
+export {signup, login, adminlogin, verify}
