@@ -32,7 +32,7 @@ function LoginForm ({ fireFinalActions }) {
         .then(res => {
             console.log("JWT token is... ", res.data)
             logInUser(res.data.authToken)
-            // fireFinalActions()
+            fireFinalActions()
         })
         .catch(err => console.log(err))
     }

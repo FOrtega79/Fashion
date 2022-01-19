@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { AlertContext } from "../../context/AlertMessage.context"
 import LoginForm from "../../components/LoginForm/LoginForm"
 import './LoginPage.css'
@@ -7,11 +7,12 @@ import './LoginPage.css'
 function LoginPage() {
 
     const {setOpen, setAlertInfo} = useContext(AlertContext)
+    const navigate = useNavigate()
 
     const fireFinalActions = () =>{
         // setOpen(true)
         // setAlertInfo({title:'', description:'Successfully logged in'})
-        Navigate('/user/profile')
+        navigate('/user/profile')
     }
 
     return(

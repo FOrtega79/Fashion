@@ -47,7 +47,7 @@ function ResponsiveAppBar() {
 
   const pages = ['Essentials', 'EShop', 'Outlet', 'About Us'];
   // const settings = [<Link to={"/admin/dashboard"}>Add New Item</Link>, 'Account', 'Dashboard', 'Logout'];
-  const userLoggedIn = ['Profile', <Link to={"/"} onClick={logOutUser}>Log Out</Link>]
+  const userLoggedIn = [<Link to={"/user/profile"}>Profile</Link>, <Link to={"/"} onClick={logOutUser}>Log Out</Link>]
   const userNotLoggedIn = [<Link to={"/login"}>Login</Link>, <Link to={"/signup"}>Sign up</Link>]
 
 
