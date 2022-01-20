@@ -6,6 +6,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import ItemMiniList from "../../components/ItemMiniList/ItemMiniList";
+
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,7 +52,7 @@ export default function VerticalTabs() {
 
   return (
     <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 424, mt:10}}
+      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 2800, mt:10}}
     >
       <Tabs
         orientation="vertical"
@@ -73,7 +76,7 @@ export default function VerticalTabs() {
         <NewItemForm />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <ItemMiniList />
       </TabPanel>
       <TabPanel value={value} index={3}>
         Item Four

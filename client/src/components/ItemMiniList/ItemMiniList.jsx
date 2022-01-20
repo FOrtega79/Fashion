@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import Skeleton from '@mui/material/Skeleton';
 import { GetAllItems } from "../../services/items.service";
-import ItemCard from "../ItemCard/ItemCard";
 import { Stack } from "@mui/material";
+import ItemMini from "../ItemMini/ItemMini";
 
 
-function AllItems(props) {
+function ItemMiniList(props) {
 
     const [items, setItems] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -27,8 +27,8 @@ function AllItems(props) {
     <Skeleton variant="text" width={210}/>
     <Skeleton variant="text" width={80}/>
   </Stack> :  
-    items.map(item => <ItemCard {...item} key={item._id}/>)
+    items.map(item => <ItemMini {...item} key={item._id}/>)
     
 }
 
-export default AllItems
+export default ItemMiniList
