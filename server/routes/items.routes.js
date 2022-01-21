@@ -25,7 +25,7 @@ router.get("/details/:item_id", (req, res, next)=> {
 
 })
 
-router.post("/addNewItem", isAuthenticated, getAdminLoggedIn, (req, res, next)=> {
+router.post("/addNewItem", (req, res, next)=> {
    
     const { name, description, price, color, size, discount, imageUrl, category } = req.body
 
