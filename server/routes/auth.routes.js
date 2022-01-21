@@ -7,7 +7,8 @@ const router = express.Router()
 const saltRounds = 10
 
 const { isAuthenticated } = require('./../middleware/middelware.JWT')
-const { getAdminLoggedIn } = require('./../middleware/middelwareIsAdmin')
+const { getAdminLoggedIn } = require('../middleware/middelwareIsAdmin')
+// const { getAdminLoggedIn } = require('./../middleware/middelwareIsAdmin')
 
 
 //Sign up Route
@@ -52,6 +53,7 @@ router.post('/signup', (req, res) => {
       return User.create({ username, email, password: hashedPassword })
     })
     .then((createdUser) => {
+      console.log('created', createdUser)
       // Deconstruct the newly created user object to omit the password
       // We should never expose passwords publicly
       const { email, username, _id } = createdUser
@@ -90,16 +92,16 @@ router.post('/login', (req, res, next) => {
           res.status(401).json({ message: "Email not found." })
           return;
         }
-   
-        // Compare the provided password with the one saved in the database
+    
+        // Compare the provided password with the isone saved in the database
         const passwordCorrect = bcrypt.compareSync(password, foundUser.password);
    
         if (passwordCorrect) {
           // Deconstruct the user object to omit the password
-          const { _id, email, username } = foundUser;
+          const { _id, email, username, isAdmin } = foundUser;
           
           // Create an object that will be set as the token payload
-          const payload = { _id, email, username };
+          const payload = { _id, email, username, isAdmin };
    
           // Create and sign the token
           const authToken = jwt.sign( 

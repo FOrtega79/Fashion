@@ -1,20 +1,12 @@
-const User = require("../models/User.model")
-import { AuthContext } from "../../client/src/context/auth.contex";
-
-
 function getAdminLoggedIn (req, res, next) {
+    const { email, isAdmin } = req.payload
 
-const {user} = useContext(AuthContext)
-const isAdministrator = user.isAdmin
-
-    if (email === 'admin@admin.com') {
-        isAdministrator = true
-        return;
-      }
-      next()
+    if (email === 'admin@admin.com' && isAdmin) {
+      return next()
+    }
+     return null
     
 
 }
-
 
 module.exports = { getAdminLoggedIn }

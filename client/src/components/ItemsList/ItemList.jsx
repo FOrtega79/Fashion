@@ -9,10 +9,11 @@ function AllItems(props) {
 
     const [items, setItems] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const storedToken = localStorage.getItem('authToken');
 
     useEffect(() =>{
 
-       GetAllItems()
+       GetAllItems(storedToken)
         .then (response =>{ 
             setItems(response.data)
             setIsLoading(false)

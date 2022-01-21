@@ -1,10 +1,10 @@
 const router = require('express').Router()
 
 const { response } = require('express')
+const { isAuthenticated } = require('../middleware/middelware.JWT')
+const { getAdminLoggedIn } = require('../middleware/middelwareIsAdmin')
 
 const Item = require("./../models/Items.model")
-
-
 
 router.get("/allItems", (req, res, next) => {
 
@@ -25,7 +25,7 @@ router.get("/details/:item_id", (req, res, next)=> {
 
 })
 
-router.post("/addNewItem", (req, res, next)=> {
+router.post("/addNewItem", isAuthenticated, getAdminLoggedIn, (req, res, next)=> {
    
     const { name, description, price, color, size, discount, imageUrl, category } = req.body
 

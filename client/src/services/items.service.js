@@ -4,8 +4,8 @@ const itemsService = axios.create({
     baseURL:`${process.env.REACT_APP_SERVER_URL}/items`
 })
 
-function GetAllItems() {
-    return itemsService.get('/allItems')
+function GetAllItems(token) {
+    return itemsService.get('/allItems', { headers: { Authorization: `Bearer ${token}`} })
 }
 
 function GetOneItem(itemId){
