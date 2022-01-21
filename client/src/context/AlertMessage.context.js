@@ -5,7 +5,7 @@
  function AlertProviderWrapper (props) {
 
     const [open, setOpen] = useState(false)
-    const [alertInfo, setAlertInfo] = useState({title: '', description:'Mensaje de éxito'})
+    const [alertInfo, setAlertInfo] = useState({description:'Well done!!'})
 
     return(
         <AlertContext.Provider value={{open, setOpen, alertInfo, setAlertInfo}}>

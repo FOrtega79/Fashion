@@ -11,7 +11,7 @@ function LoginPage() {
 
     const fireFinalActions = () =>{
         // setOpen(true)
-        // setAlertInfo({title:'', description:'Successfully logged in'})
+        setAlertInfo({title:'', description:'Successfully logged in'})
         navigate('/user/profile')
     }
 

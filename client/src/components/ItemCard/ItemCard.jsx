@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { Link } from 'react-router-dom'
 
+
 function ItemCard({name, description, price, color, size, discount, image, category, _id}) {
 
     return (
@@ -30,6 +31,7 @@ function ItemCard({name, description, price, color, size, discount, image, categ
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
+        
           Add to cart
         </Button>
       </CardActions>

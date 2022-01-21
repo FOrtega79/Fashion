@@ -1,9 +1,11 @@
 .indexPage{
     margin-top: 55px;
+    display: flex;
+    justify-content: center;
 }
 
 .indexText{
-    position: absolute;
+    position: fixed;
     margin-top: 250px;
-    margin-left: 30%;
+    margin-left: 11%;
 }

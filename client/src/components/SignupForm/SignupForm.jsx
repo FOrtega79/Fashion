@@ -7,8 +7,10 @@ import Spinner from './../Spinner/Spinner'
 import { AlertContext } from '../../context/AlertMessage.context';
 import AlertMessage from '../AlertMessage/AlertMessage';
 import { signup } from '../../services/auth.service';
+import {useNavigate} from 'react-router-dom'
 
-function NewUserSignupForm({fireFinalActions}) {
+function NewUserSignupForm({fireLogin}) {
+
 
     const [newUserForm, setNewUserForm] = useState({
         username:'', 
@@ -30,6 +32,7 @@ function NewUserSignupForm({fireFinalActions}) {
 
         signup(credentials)
         .then(response => (response.data))
+        fireLogin()
         .catch(err => console.log(err))
     }
     

@@ -7,7 +7,7 @@ const router = express.Router()
 const saltRounds = 10
 
 const { isAuthenticated } = require('./../middleware/middelware.JWT')
-
+const { getAdminLoggedIn } = require('./../middleware/middelwareIsAdmin')
 
 
 //Sign up Route
@@ -79,6 +79,7 @@ router.post('/login', (req, res, next) => {
       res.status(400).json({ message: "Provide email and password." });
       return;
     }
+
    
     // Check the users collection if a user with the same email exists
     User.findOne({ email })
@@ -125,5 +126,14 @@ router.get('/verify', isAuthenticated, (req, res, next) => {
     console.log(`req.payload`, req.payload);
     res.status(200).json(req.payload);
   });
+
+
+  //Get all users Route
+  router.get('/users', (req, res, next) => {
+    User
+    .find()
+    .then(response => res.json(response))
+    .catch(err => next(new Error(err)))
+  })
 
 module.exports = router

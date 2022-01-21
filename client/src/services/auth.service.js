@@ -20,4 +20,8 @@ function verify(token) {
     return authService.get('/verify', { headers: { Authorization: `Bearer ${token}`} })
 }
 
-export {signup, login, adminlogin, verify}
+function listUsers(){
+    return authService.get('/users')
+}
+
+export {signup, login, adminlogin, verify, listUsers}

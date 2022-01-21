@@ -14,13 +14,10 @@ import MenuItem     from '@mui/material/MenuItem'
 import Badge        from '@mui/material/Badge'
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import {Link}       from "react-router-dom"
 import { AuthContext } from '../../context/auth.contex'
 import { useContext } from 'react'
-
-
-
+import CartDrawer from '../Cart/Cart'
 
 
 function ResponsiveAppBar() {
@@ -45,8 +42,7 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
-  const pages = ['Essentials', 'EShop', 'Outlet', 'About Us'];
-  // const settings = [<Link to={"/admin/dashboard"}>Add New Item</Link>, 'Account', 'Dashboard', 'Logout'];
+  const pages = ['Scarfs', 'Bags', 'Outlet', 'About this project'];
   const userLoggedIn = [<Link to={"/user/profile"}>Profile</Link>, <Link to={"/"} onClick={logOutUser}>Log Out</Link>]
   const userNotLoggedIn = [<Link to={"/login"}>Login</Link>, <Link to={"/signup"}>Sign up</Link>]
 
@@ -132,7 +128,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
           <IconButton size="large" aria-label="show 4 new mails" color="default">
               <Badge badgeContent={0} color="secondary" variant="dot">
-                <ShoppingCartOutlinedIcon />
+                <CartDrawer />
               </Badge>
             </IconButton>
             <Tooltip title="Open settings">

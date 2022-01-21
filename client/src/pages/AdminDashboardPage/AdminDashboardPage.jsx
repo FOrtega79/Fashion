@@ -7,6 +7,8 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ItemMiniList from "../../components/ItemMiniList/ItemMiniList";
+import UsersList from "../../components/UsersList/UsersList";
+
 
 
 
@@ -66,11 +68,11 @@ export default function VerticalTabs() {
         <Tab label="Create Product" {...a11yProps(1)} />
         <Tab label="Catalogue" {...a11yProps(2)} />
         <Tab label="Sales" {...a11yProps(3)} />
-        <Tab label="Item Five" {...a11yProps(4)} />
+        
         
       </Tabs>
       <TabPanel value={value} index={0}>
-        Users
+      <UsersList />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <NewItemForm />
@@ -79,11 +81,9 @@ export default function VerticalTabs() {
         <ItemMiniList />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        Sales...
       </TabPanel>
-      <TabPanel value={value} index={4}>
-        Item Five
-      </TabPanel>
+      
       
     </Box>
   );
