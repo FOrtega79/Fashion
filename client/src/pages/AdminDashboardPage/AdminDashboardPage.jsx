@@ -11,8 +11,6 @@ import UsersList from "../../components/UsersList/UsersList";
 
 
 
-
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -46,7 +44,7 @@ function a11yProps(index) {
   };
 }
 
-export default function VerticalTabs() {
+ function AdminDashboardPage() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -55,7 +53,7 @@ export default function VerticalTabs() {
 
   return (
     <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 2800, mt:10,  width:'250%'}}
+      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: '100%', mt:10,  width:'250%'}}
     >
       <Tabs
         orientation="vertical"
@@ -92,14 +90,5 @@ export default function VerticalTabs() {
   );
 }
 
-// function AdminDashboardPage(){
 
-// return(
-//     <div className="adminDashboard">
-//         <NewItemForm />
-//     </div>
-// )
-
-// }
-
-// export default AdminDashboardPage
+export default AdminDashboardPage

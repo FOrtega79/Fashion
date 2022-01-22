@@ -1,4 +1,5 @@
  import { Route, Routes } from 'react-router-dom'
+import NotFound from '../pages/404/404'
 import AdminDashboardPage from '../pages/AdminDashboardPage/AdminDashboardPage'
 import AllItems from '../pages/AllItemsPage/AllItemsPage'
 import IndexPage from '../pages/IndexPage/IndexPage'
@@ -19,8 +20,9 @@ function AppRoutes () {
             <Route path="/list" element={<AllItems />} /> 
             <Route path="/details/:itemId" element={<ItemDetailsPage />} />
             
-            <Route path="/admin/dashboard" element={<PrivateRoute />} />
-            <Route path="" element={<AdminDashboardPage/>} />
+            <Route path="/admin/dashboard" element={<AdminDashboardPage/>} />
+            {/* <Route path="" element={<AdminDashboardPage/>} /> */}
+
             <Route path="/signup" element={<NewUserSignUpPage />} />
             
             <Route path="/login" element={<LoginPage />} />
@@ -29,7 +31,7 @@ function AppRoutes () {
             <Route path= "/user/profile" element={<PrivateRoute />}>
                 <Route path="" element={<UserProfilePage />} />
             </Route>
-            <Route path="*" element={<h1>404... item not found</h1>} />
+            <Route path="*" element={<NotFound/>} />
             
         </Routes>
     )
