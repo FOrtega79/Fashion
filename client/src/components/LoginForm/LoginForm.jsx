@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import AlertMessage from "../AlertMessage/AlertMessage";
 import { AlertContext } from '../../context/AlertMessage.context'
+import './LoginForm.css'
 
 function LoginForm ({ fireFinalActions }) {
 
@@ -42,7 +43,7 @@ function LoginForm ({ fireFinalActions }) {
     };
 
         return(
-            <div>
+            <div className="loginForm">
           
             <Box onSubmit={handleFormSubmit}
               component="form"
@@ -74,7 +75,9 @@ function LoginForm ({ fireFinalActions }) {
               />
       
               <Button 
-              variant='contained' 
+              color="secondary"
+              size="medium"
+              variant='outlined' 
               type='submit'
               onClick={handleClick}
             //   disabled={loadingImage}>{loadingImage ? <Spinner /> : 'Sign up'}

@@ -6,8 +6,8 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions, Divider } from '@mui/material';
-import { Link } from 'react-router-dom'
+import { Button, CardActions, Divider } from '@mui/material';
+import './ItemDetailsPage.css'
 
 
 function ItemDetailsPage(props){
@@ -19,7 +19,7 @@ function ItemDetailsPage(props){
         GetOneItem(itemId)
         .then(response => setItem(response.data) )
         .catch(err => console.log(err))
-    },[])
+    },[itemId])
     
     return(
         <>
@@ -43,13 +43,13 @@ function ItemDetailsPage(props){
           </Typography>
         </CardContent>
         
-      
+      <div className='addToCartBtn'>
       <CardActions>
         <Button variant='contained'  size="large" color='inherit'>
           Add to cart
         </Button>
       </CardActions>
-
+</div>
       <CardContent>
           <Typography gutterBottom variant="body1" component="div" align='center'>
           {item.description}
@@ -61,7 +61,9 @@ function ItemDetailsPage(props){
 <CardContent>
           <Typography gutterBottom variant="body1" component="div">
           Color: {item.color}
+          <Divider></Divider>
           Size: {item.size}
+          <Divider></Divider>
           Category: {item.category}
           </Typography>
     </CardContent>

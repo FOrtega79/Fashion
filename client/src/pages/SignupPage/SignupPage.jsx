@@ -5,27 +5,26 @@ import { AlertContext } from "../../context/AlertMessage.context"
 import { useContext } from "react"
 
 
-function NewUserSignUpPage(){
+function NewUserSignUpPage() {
+  const { setAlertInfo } = useContext(AlertContext);
+  const navigate = useNavigate();
+  const fireLogin = () => {
+    // setOpen(true)
+    setAlertInfo({ title: "", description: "Successfully Signed up" });
+    navigate("/login");
+  };
 
-    const {setAlertInfo} = useContext(AlertContext)
-    const navigate = useNavigate()
-    const fireLogin = () =>{
-        // setOpen(true)
-        setAlertInfo({title:'', description:'Successfully Signed up'})
-        navigate('/login')
-    }
+  return (
+    <div className="signupform">
+      <h1 className="signupTitle">Sign up</h1>
+      <NewUserSignupForm fireLogin={fireLogin} />
 
-    return(
-        <div className="signupform">
-            <h1>Sign up</h1>
-<NewUserSignupForm fireLogin={fireLogin} />
-
-<p>Already have an account?</p>
-<p>Please Log in</p>
-
-
-</div>
-    )
+      <div className="signupText">
+        <p>Already have an account?</p>
+        <p>Please Log in</p>
+      </div>
+    </div>
+  );
 }
 
 export default NewUserSignUpPage

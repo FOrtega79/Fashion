@@ -1,3 +1,11 @@
 .signupform{
     margin-top: 100px;
 }
+
+.signupTitle , .signupText{
+    text-align: center;
+}
+
+.signupText{
+    margin-bottom: 60px;
+}

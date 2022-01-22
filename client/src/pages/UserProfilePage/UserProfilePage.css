@@ -1,3 +1,14 @@
 .userProfilePage{
     margin-top: 100px;
+    margin-bottom: 195px;
+    padding-left: 35px;
+}
+
+.profileDetails{
+    margin-bottom: 35px;
+}
+
+.issueTextField{
+    margin-bottom: 10px;
+    margin-top: 15px;
 }

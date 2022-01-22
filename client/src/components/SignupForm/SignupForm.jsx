@@ -1,100 +1,96 @@
-import { Alert, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
-import { styled } from '@mui/material/styles'
-import Spinner from './../Spinner/Spinner'
 import { AlertContext } from '../../context/AlertMessage.context';
 import AlertMessage from '../AlertMessage/AlertMessage';
 import { signup } from '../../services/auth.service';
 import {useNavigate} from 'react-router-dom'
+import './SignupForm.css'
 
-function NewUserSignupForm({fireLogin}) {
+function NewUserSignupForm({ fireLogin }) {
+  const [newUserForm, setNewUserForm] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
 
+  const { username, email, password } = newUserForm;
 
-    const [newUserForm, setNewUserForm] = useState({
-        username:'', 
-        email:'', 
-        password:''
-    })
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewUserForm({ ...newUserForm, [name]: value });
+  };
 
-    const { username, email, password } = newUserForm
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
 
-    const handleInputChange = e => {
-        const { name, value } = e.target
-        setNewUserForm({...newUserForm, [name]:value})
-    }
+    const credentials = { username, email, password };
 
-    const handleFormSubmit = e =>{
-        e.preventDefault()
+    signup(credentials).then((response) => response.data);
+    fireLogin().catch((err) => console.log(err));
+  };
 
-        const credentials = {username, email, password}
+  // const Input = styled('input')({
+  //     display: 'none',
+  //   });
 
-        signup(credentials)
-        .then(response => (response.data))
-        fireLogin()
-        .catch(err => console.log(err))
-    }
-    
-    // const Input = styled('input')({
-    //     display: 'none',
-    //   });
-
-      return (
-          <>
-          
-        <Box onSubmit={handleFormSubmit}
-          component="form"
-          sx={{
-            "& > :not(style)": { mt: 8, mb:5, width: "25ch", display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column' },
-          }}
-          noValidate
-          autoComplete="on"
-        >
-          <TextField 
-          required 
-          id="standard-basic" 
-          label="Username" 
-          variant="standard" 
-          value={username}
-          name='username'
-          onChange={handleInputChange}    
-          />
-  
-          <TextField 
+  return (
+    <div className="signUp">
+      <Box
+        onSubmit={handleFormSubmit}
+        component="form"
+        sx={{
+          "& > :not(style)": {
+            mt: 8,
+            mb: 5,
+            width: "25ch",
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          },
+        }}
+        noValidate
+        autoComplete="on"
+      >
+        <TextField
           required
-          id="standard-basic" 
-          label="Email" 
+          id="standard-basic"
+          label="Username"
+          variant="standard"
+          value={username}
+          name="username"
+          onChange={handleInputChange}
+        />
+
+        <TextField
+          required
+          id="standard-basic"
+          label="Email"
           variant="standard"
           value={email}
-          name='email'
+          name="email"
           onChange={handleInputChange}
-           />
-  
-          <TextField 
+        />
+
+        <TextField
           id="filled-adornment-password"
-          label="Password" 
-          variant="standard" 
+          label="Password"
+          variant="standard"
           value={password}
-          name='password'
-          onChange={handleInputChange}    
-          />
-  
-          <Button 
-          variant='contained' 
-          type='submit' 
-        //   disabled={loadingImage}>{loadingImage ? <Spinner /> : 'Sign up'}
-          >Sign Up
-          </Button>
-        </Box>
-        
+          name="password"
+          onChange={handleInputChange}
+        />
 
-</>
-      );
-
-      
+        <Button
+          color="secondary"
+          variant="outlined"
+          type="submit"
+        >Sign Up
+        </Button>
+      </Box>
+    </div>
+  );
 }
 
 

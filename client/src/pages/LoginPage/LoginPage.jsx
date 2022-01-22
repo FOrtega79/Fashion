@@ -1,8 +1,9 @@
 import { useContext } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { AlertContext } from "../../context/AlertMessage.context"
 import LoginForm from "../../components/LoginForm/LoginForm"
 import './LoginPage.css'
+
 
 function LoginPage() {
 
@@ -10,22 +11,23 @@ function LoginPage() {
     const navigate = useNavigate()
 
     const fireFinalActions = () =>{
-        // setOpen(true)
+        setOpen(true)
         setAlertInfo({title:'', description:'Successfully logged in'})
         navigate('/user/profile')
     }
 
-    return(
-        <div className="loginPage">
-        <h1>Login</h1>
+    return (
+      <div className="loginPage">
+        <h1 className="loginTitle">Login</h1>
         {/* <LoginForm /> */}
-        <LoginForm fireFinalActions={fireFinalActions}/>
-        
-        <p>Already have an account?</p>
-        <p>Please Log in</p>
-        
+        <LoginForm fireFinalActions={fireFinalActions} />
+
+        <div className="loginText">
+          <p>Don't have an account?</p>
+          <p>Please <Link to= '/signup'>Sign up</Link></p>
         </div>
-    )
+      </div>
+    );
 }
 
 export default LoginPage

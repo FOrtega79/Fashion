@@ -12,8 +12,8 @@ function login(credentials) {
     return authService.post('/login', credentials)
 }
 
-function adminlogin(credentials) {
-    return authService.post('/admin', credentials)
+function adminlogin(token) {
+    return authService.post('/admin', { headers: { Authorization: `Bearer ${token}`} })
 }
 
 function verify(token) {
