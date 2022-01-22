@@ -19,8 +19,8 @@ function AppRoutes () {
             <Route path="/list" element={<AllItems />} /> 
             <Route path="/details/:itemId" element={<ItemDetailsPage />} />
             
-            <Route path="/admin/dashboard" element={<AdminDashboardPage/>} />
-            
+            <Route path="/admin/dashboard" element={<PrivateRoute />} />
+            <Route path="" element={<AdminDashboardPage/>} />
             <Route path="/signup" element={<NewUserSignUpPage />} />
             
             <Route path="/login" element={<LoginPage />} />

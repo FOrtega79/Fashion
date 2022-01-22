@@ -2,16 +2,19 @@ import { useContext } from "react";
 import TextField from '@mui/material/TextField';
 import './UserProfilePage.css'
 import { Button } from "@mui/material";
+import { AuthContext } from "../../context/auth.contex";
 
 
 function UserProfilePage () {
+
+  const {user} = useContext(AuthContext)
 
     return(
         <div className="userProfilePage">
         <div className="profileDetails">
         <h1>Profile Details</h1>
-        <p>Your Username: </p>
-        <p>Your registered email: </p>
+        <p>Your Username: {user.username} </p>
+        <p>Your registered email: {user.email} </p>
         </div>
         <h2>Support</h2>
         <div>

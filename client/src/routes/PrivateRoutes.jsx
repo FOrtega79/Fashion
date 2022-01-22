@@ -15,7 +15,7 @@ function PrivateRoute(){
 
     if (!isLoggedIn) {
         setOpen(false)
-        // setAlertInfo({description:'Restricted Access'})
+        setAlertInfo({description:'Restricted Access'})
         return <Navigate to="/list"/>
     }
 
